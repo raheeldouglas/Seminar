@@ -40,14 +40,14 @@
         <input type="text" class="form-control" value="<?php echo $seminar['lastname'] ?>" id="lastname" name="lastname">
     </div>
     <div class="form-group">
-        <label for="dob">Date Of Birth</label>
-        <input type="text" class="form-control" value="<?php echo $seminar['dateofbirth'] ?>" id="dob" name="dob">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" value="<?php echo $seminar['address'] ?>" id="address" name="address">
     </div>
     <div class="form-group">
-        <label for="specialty">Area of Expertise</label>
-        <select class="form-control" id="specialty" name="specialty">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender" name="gender">
             <?php while($r = $results->fetch(PDO::FETCH_ASSOC)) {?>
-               <option value="<?php echo $r['specialty_id'] ?>" <?php if($r['specialty_id'] == $seminar['specialty_id']) echo 'selected' ?>>
+               <option value="<?php echo $r['gender_id'] ?>" <?php if($r['gender_id'] == $seminar['gender_id']) echo 'selected' ?>>
                     <?php echo $r['name']; ?>
                </option>
             <?php }?>
