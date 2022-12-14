@@ -11,7 +11,7 @@
             $this->db = $conn;
         }
 
-        // function to insert a new record into the attendee database    
+        // function to insert a new record into the  database    
         public function insertAttendees($fname, $lname, $gender, $email, $contact, $address){
             try {
                 // define sql statement to be executed
@@ -115,3 +115,5 @@
         
     }
 ?>
+
+

@@ -8,8 +8,8 @@
       //extract values from the $_POST array  
       $fname = $_POST['firstname'];
       $lname = $_POST['lastname'];
-      $dob = $_POST['dob'];
-      $specialty = $_POST['specialty'];
+      $gender = $_POST['gender'];
+      $address = $_POST['address'];
       $email = $_POST['email'];
       $contact = $_POST['phone'];
 
@@ -22,7 +22,7 @@
         move_uploaded_file($orig_file,$destination);
       
       //call function to insert and track if success or not
-      $isSuccess = $crud->insertAttendees($fname, $lname, $dob, $email, $contact, $specialty);
+      $isSuccess = $crud->insertAttendees($fname, $lname, $gender,$address, $email, $contact);
       
       if($isSuccess){
         include 'includes/successmessage.php';
@@ -72,11 +72,11 @@
             </h5>
 
             <h6 class="card-subtitle mb-2 text-muted">
-                    <?php echo $_POST['specialty'];?>
+                    <?php echo $_POST['address'];?>
             </h6>
 
             <p class="card-text">
-                    Date of Birth: <?php echo $_POST['dob'];?>
+                    Gender: <?php echo $_POST['gender'];?>
             </p>
 
             <p class="card-text">
