@@ -34,19 +34,19 @@
         </tr> -->
         <?php while($r = $results->fetch(PDO::FETCH_ASSOC)) { ?> 
            <tr>
-                <td><?php echo $r['attendee_id'] ?></td>
+                <td><?php echo $r['seminar_id'] ?></td>
                 <td><?php echo $r['firstname'] ?></td>
                 <td><?php echo $r['lastname'] ?></td>
              <!-- <td><?php echo $r['dateofbirth'] ?></td>
                 <td><?php echo $r['emailaddress'] ?></td>
                 <td><?php echo $r['contactnumber'] ?></td> 
-                <td><?php echo $r['specialty_id'] ?></td>-->
+                <td><?php echo $r['gender_id'] ?></td>-->
                 <td><?php echo $r['name'] ?></td>
                 <td>
-                    <a href="view.php?id=<?php echo $r['attendee_id'] ?>" class="btn btn-primary">View</a>
-                    <a href="edit.php?id=<?php echo $r['attendee_id'] ?>" class="btn btn-warning">Edit</a>
+                    <a href="view.php?id=<?php echo $r['seminar_id'] ?>" class="btn btn-primary">View</a>
+                    <a href="edit.php?id=<?php echo $r['seminar_id'] ?>" class="btn btn-warning">Edit</a>
                     <a onclick="return confirm('This will be lost, are you sure you want to delete records?');"
-                    href="delete.php?id=<?php echo $r['attendee_id'] ?>" class="btn btn-danger">Delete</a>
+                    href="delete.php?id=<?php echo $r['seminar_id'] ?>" class="btn btn-danger">Delete</a>
                 </td>
             
             </tr> 

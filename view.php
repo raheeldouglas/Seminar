@@ -39,9 +39,9 @@
     </div>
     <br/>
                 <a href="view.php" class="btn btn-info">Back to List</a>
-                <a href="edit.php?id=<?php echo $result['attendee_id'] ?>" class="btn btn-warning">Edit</a>
+                <a href="edit.php?id=<?php echo $result['seminar_id'] ?>" class="btn btn-warning">Edit</a>
                 <a onclick="return confirm('This will be lost, are you sure you want to delete records?');"
-                href="delete.php?id=<?php echo $result['attendee_id'] ?>" class="btn btn-danger">Delete</a>
+                href="delete.php?id=<?php echo $result['seminar_id'] ?>" class="btn btn-danger">Delete</a>
         <?php } ?>
 
 <br>
