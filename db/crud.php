@@ -12,11 +12,11 @@
         }
 
         // function to insert a new record into the attendee database    
-        public function insertAttendees($fname, $lname, $gender, $email, $contact, $specialty){
+        public function insertAttendees($fname, $lname, $gender, $email, $contact, $address){
             try {
                 // define sql statement to be executed
-                $sql = "INSERT INTO attendee (firstname, lastname, dateofbirth, emailaddress, contactnumber,
-                specialty_id, avatar_path) VALUES(:fname, :lname, :dob, :email, :contact, :specialty :avatar_path)";
+                $sql = "INSERT INTO attendee (firstname, lastname, gender, emailaddress, contactnumber,
+                seminar_id, avatar_path) VALUES(:fname, :lname, :dob, :email, :contact, :address :avatar_path)";
                 // prepare sql statement for execution
                 $stmt = $this->db->prepare($sql);
                 // bind all placeholders to the actual values
@@ -25,7 +25,7 @@
                 $stmt->bindparam(':gender',$gender);
                 $stmt->bindparam(':email',$email);
                 $stmt->bindparam(':contact',$contact);
-                $stmt->bindparam(':specialty',$specialty);
+                $stmt->bindparam(':address',$address);
                 $stmt->bindparam(':avatar_path',$avatar_path);
                 // excute statement
                 $stmt->execute();
@@ -37,11 +37,11 @@
             }
         } 
 
-        public function editAttendee($id, $fname, $lname, $gender, $email, $phone, $specialty){
+        public function editAttendee($id, $fname, $lname, $gender, $email, $phone, $address){
             try{
                 $sql = "UPDATE `attendee` SET `firstname`=:fname,`lastname`=:lname,`gender`=:gender,
-                `emailaddress`=:email,`contactnumber`=:contact,`specialty_id`=:specialty 
-                WHERE attendee_id = :id";
+                `emailaddress`=:email,`contactnumber`=:contact,`gender_id`=:gender `address `=:address,
+                WHERE seminar_id = :id";
                 $stmt = $this->db->prepare($sql);
                 // bind all placeholders to the actual values
                 $stmt->bindparam(':id',$id);
@@ -50,7 +50,7 @@
                 $stmt->bindparam(':gender',$gender);
                 $stmt->bindparam(':email',$email);
                 $stmt->bindparam(':contact',$phone);
-                $stmt->bindparam(':specialty',$specialty);
+                $stmt->bindparam(':address',$address);
                 // excute statement
                 $stmt->execute();
                 return true;
@@ -62,7 +62,7 @@
         }
         public function getAttendees(){
             try{
-                $sql = "SELECT * FROM `attendee` a inner join specialties s on a.specialty_id = s.specialty_id";
+                $sql = "SELECT * FROM `attendee` a inner join gender s on a.gender_id = s.gender_id";
             $result = $this->db->query($sql);
             return $result;
             }catch (PDOException $e) {
@@ -74,8 +74,8 @@
 
         public function getAttendeeDetails($id){
             try{
-                $sql = "select * from attendee a inner join specialty s on a.specialty_id 
-                = s.specialty_id where attendee_id = :id";
+                $sql = "select * from attendee a inner join specialty s on a.gender_id 
+                = s.gender_id where seminar_id = :id";
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam(':id', $id);
                 $stmt->execute();
@@ -89,7 +89,7 @@
 
         public function deleteAttendee($id){
             try{
-                $sql = "delete from attendee where attendee_id = :id";
+                $sql = "delete from attendee where seminar_id = :id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindparam(':id', $id);
             $stmt->execute();
@@ -102,7 +102,7 @@
 
         public function getSpecialties(){
             try{
-                $sql = "SELECT * FROM `specialties`;";
+                $sql = "SELECT * FROM `gender`;";
                 $result = $this->db->query($sql);
                 return $result;
             }catch (PDOException $e) {
