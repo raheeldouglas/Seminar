@@ -6,13 +6,13 @@
         $id = $_POST['id'];  
         $fname = $_POST['firstname'];
         $lname = $_POST['lastname'];
-        $dob = $_POST['dob'];
+        $gender = $_POST['gender'];
         $email = $_POST['email'];
         $contact = $_POST['phone'];
-        $specialty = $_POST['specialty'];
+        $address = $_POST['address'];
 
         //Call Crud Function
-        $result = $crud->editAttendee($id,$fname, $lname, $dob, $email, $contact, $specialty);
+        $result = $crud->editAttendee($id,$fname, $lname, $gender, $email, $contact, $address);
 
         //Redirect to index.php
         if($result){

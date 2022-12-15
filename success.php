@@ -12,7 +12,7 @@
       $address = $_POST['address'];
       $email = $_POST['email'];
       $contact = $_POST['phone'];
-      $avatar_path = $_POST['avatar'];
+      
 
 
       //Uploading Images
@@ -23,7 +23,7 @@
         move_uploaded_file($orig_file,$destination);
       
       //call function to insert and track if success or not
-      $isSuccess = $crud->insertAttendees($fname, $lname, $gender,$address, $email, $contact,$avatar_path);
+      $isSuccess = $crud->insertAttendees($fname, $lname, $gender,$address, $email, $contact);
       
       if($isSuccess){
         include 'includes/successmessage.php';
