@@ -23,9 +23,11 @@
         move_uploaded_file($orig_file,$destination);
       
       //call function to insert and track if success or not
-      $isSuccess = $crud->insertAttendees($fname, $lname, $gender,$address, $email, $contact);
-      
+      $isSuccess = $crud->insertAttendees($fname, $lname, $gender,$address, $email, $contact,$destination);
+      $specialtyName = $crud->getSpecialtyById($gender);
+
       if($isSuccess){
+        SendEmail::SendMail($email, 'Welcome to Growth and Development Seminar 2022', 'You have successfully registerted for this year\'s Growth And Development Seminar');
         include 'includes/successmessage.php';
       }
       else{
@@ -68,7 +70,7 @@
 
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-            <h5 class="card-title">
+            <h5 class="card-subtitle mb-2 text-muted">
                     <?php echo $_POST['firstname'] .  '  ' . $_POST['lastname'];?>
             </h5>
 
@@ -76,17 +78,17 @@
                     <?php echo $_POST['address'];?>
             </h6>
 
-            <p class="card-text">
-                    Gender: <?php echo $_POST['gender'];?>
-            </p>
+            <h6 class="card-subtitle mb-2 text-muted">
+                <?php echo $specialtyName['name'];  ?>    
+            </h6>
 
-            <p class="card-text">
-                    Contact Number: <?php echo $_POST['phone'];?>
-            </p>
+            <h6 class="card-subtitle mb-2 text-muted">
+            <?php echo $_POST['phone'];?>
+            </h6>
 
-            <p class="card-text">
-                    Email Address: <?php echo $_POST['email'];?>
-            </p>
+            <h6 class="card-subtitle mb-2 text-muted">
+            <?php echo $_POST['email'];?>
+            </h6>
 
             </div>
         </div>

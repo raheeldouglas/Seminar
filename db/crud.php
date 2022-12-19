@@ -12,11 +12,11 @@
         }
 
         // function to insert a new record into the  database    
-        public function insertAttendees($fname, $lname, $gender, $email, $contact, $address){
+        public function insertAttendees($fname, $lname, $gender, $email, $contact, $address,$avatar_path){
             try {
                 // define sql statement to be executed
                 $sql = "INSERT INTO seminar (firstname, lastname, gender, emailaddress, contactnumber,
-                seminar_id, avatar_path) VALUES(:fname, :lname, :dob, :emailaddress, :contact, :address :avatar_path)";
+                seminar_id,address, avatar_path) VALUES(:fname, :lname,:emailaddress,:gender,:contact,:address,:avatar_path)";
                 // prepare sql statement for execution
                 $stmt = $this->db->prepare($sql);
                 // bind all placeholders to the actual values
@@ -111,9 +111,28 @@
             }
         }
 
+        public function getSpecialtyById($id){
+            try{
+                $sql = "SELECT * FROM `gender` where gender_id = :id";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':id', $id);
+                $stmt->execute();
+                $result = $stmt->fetch();
+                return $result;
+            }catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+            
+        }
+
+
         
-        
+
     }
 ?>
+        
+    
+
 
 

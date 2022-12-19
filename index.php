@@ -36,9 +36,10 @@ $title = 'index';
             <label for="gender"> Gender </label>
             <select class="form-control" id="gender" name="gender">
                 <?php while($r = $results->fetch(PDO::FETCH_ASSOC)) {?>
-                    <option value='<?php echo $r['gender']?>'><?php echo $r['name']; ?></option>
+                    <option value="<?php echo $r['gender_id']?>"><?php echo $r['name']; ?></option>
                 <?php }?>    
             </select>
+                </div>
             <br>
             <div class="mb-3">
             <label for="address" class="form-label">Address</label>
