@@ -18,7 +18,7 @@ include_once 'includes/session.php'?>
     
     <link rel="stylesheet" href="CSS/site.CSS"/>
 
-    <title>Attendance -<?php echo $title?></title>
+    <title>Seminar -<?php echo $title?></title>
   </head>
   <body>
     <div class="container">

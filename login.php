@@ -5,7 +5,7 @@
     require_once 'db/conn.php';
     // require_once 'db/user.php';
 
-    // If data was submitted via a from POST request, then...
+    // If data was submitted via a form POST request, then...
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $username = strtolower(trim($_POST['username']));
         $password = $_POST['password'];
@@ -17,7 +17,7 @@
             echo '<div class="alert alert-danger">Username or Password is incorrect! Please Enter Correct Password. </div>';
         }else{
             $_SESSION['username'] = $username;
-            $_SESSION['user_id'] = $result['id'];
+            $_SESSION['userid'] = $result['id'];
             var_dump($_SESSION);
             header("Location: viewrecords.php");
         }

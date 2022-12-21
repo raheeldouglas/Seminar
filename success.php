@@ -66,7 +66,7 @@
         </div>
     </div> -->
 
-    <img src="<?php echo $destination; ?>" class="rounded-circle" alt="..." style="width: 15%; height 20%;" />
+    <img src="<?php echo $destination; ?>" class="rounded-circle" alt="..." style="width: 20%; height 20%;" />
 
         <div class="card" style="width: 18rem;">
             <div class="card-body">

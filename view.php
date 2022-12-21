@@ -6,13 +6,13 @@
 
     // Get attendees by id
     if(!isset($_GET['id'])){ 
-        header("Location: viewrecords.php");
+        include 'includes/errormessage.php';
     }else{
         $id = $_GET['id'];
         $result = $crud->getAttendeeDetails($id); 
        
 ?>
-    <img src="<?php echo empty($result['avatar_path']) ?"uploads/blank.png" : $result['avatar_path']; ?>" 
+    <img src="<?php echo empty($result['avatar_path']) ? "uploads/blank.png" : $result['avatar_path']; ?>" 
      class="rounded-circle" alt="..." style="width: 15%; height: 10%;" />
     <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -25,7 +25,7 @@
             </h6>
 
             <p class="card-text">
-                    Date of Birth: <?php echo $result['dateofbirth'];?>
+                    Gender: <?php echo $result['gender'];?>
             </p>
 
             <p class="card-text">
@@ -38,7 +38,7 @@
         </div>
     </div>
     <br/>
-                <a href="view.php" class="btn btn-info">Back to List</a>
+                <a href="viewrecords.php" class="btn btn-info">Back to List</a>
                 <a href="edit.php?id=<?php echo $result['seminar_id'] ?>" class="btn btn-warning">Edit</a>
                 <a onclick="return confirm('This will be lost, are you sure you want to delete records?');"
                 href="delete.php?id=<?php echo $result['seminar_id'] ?>" class="btn btn-danger">Delete</a>

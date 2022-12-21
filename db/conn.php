@@ -1,7 +1,7 @@
 <?php
      // FOR HOSTING  MYSQL (Remote Connection)
      //$host = 'applied-web.mysql.database.azure.com';
-     //$db = 'attendee_raheel';
+     //$db = 'seminar_raheel';
     // $user ='appliedweb_user@applied-web';
     // $pass = 'P@ssword1';
     // $charset = 'utf8mb4';
