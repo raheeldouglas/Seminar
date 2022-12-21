@@ -26,10 +26,6 @@
             </h6>
 
             <p class="card-text">
-                    Gender: <?php echo $result['gender'];?>
-            </p>
-
-            <p class="card-text">
                     Contact Number: <?php echo $result['contactnumber'];?>
             </p>
 
