@@ -18,7 +18,7 @@ $title = 'index';
 -->
     <h1 class="text-center">Registration For Growth and Development Seminar</h1>
 
-    <form method="post" action="success.php">
+    <form method="post"  action="success.php" enctype="multipart/form-data">
     
     <div class="mb-3">
             <label for="firstname"> First Name</label>
@@ -63,7 +63,7 @@ $title = 'index';
         <div class="mb-3">
             <input type="file" accept="image/*" class="form-control" id="avatar" name="avatar" >
             <small id="avatar" class="form-text text-danger">File Upload is Optional</small>
-
+            
         </div>
         
         <div class="d-grid gap-2">

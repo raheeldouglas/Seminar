@@ -26,11 +26,10 @@
 
 <h1 class = "text-center"><?php echo $title ?> </h1>
    
-    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" METHOD="post">
         <table class="table table-sm">
             <tr>
-                <td>
-                    <label for="username">Username: * </label></td>
+                <td><label for="username">Username: * </label></td>
                 <td><input type="text" name="username" class="form-control" id="username" 
                 value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $_POST['username']; ?>">
                 
@@ -47,7 +46,7 @@
         <div class="d-grid gap-2">
         <input type="submit" value="Login" class="btn btn-primary btn-block"><br/>
 
-            <!-- <button type="submit" name="Login" class="btn btn-primary btn-block">Login</button>    -->
+    
         </div>
 
         <br/><br/><br/>

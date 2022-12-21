@@ -6,7 +6,8 @@
 
     // Get attendees by id
     if(!isset($_GET['id'])){ 
-        include 'includes/errormessage.php';
+        //include 'includes/errormessage.php';
+        header("Location: viewrecords.php");
     }else{
         $id = $_GET['id'];
         $result = $crud->getAttendeeDetails($id); 
