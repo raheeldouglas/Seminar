@@ -18,26 +18,19 @@
         $attendee = $crud->getAttendeeDetails($id);
        
 ?>
-    <!-- 
-        - First Name
-        - Last Name
-        - Date of Birth (use DatePicker)
-        - Specialty (Database Admin, Software Developer, Web Administrator, Other, IT Specialist)
-        - Email Address
-        - Contact Number
-    -->
+    
 
     <h1 class="text-center">Edit Record </h1>
 
-<form method="post" action="editpost.php">
-    <input type="hidden" name="id" value="<?php echo $seminar['seminar_id'] ?>" />
+<form method="post" action="editpost.php" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?php echo $seminar["seminar_id"] ?>" />
     <div class="form-group">
         <label for="firstname">First Name</label>
-        <input type="text" class="form-control" value="<?php echo $seminar['firstname'] ?>" id="firstname" name="firstname">
+        <input type="text" class="form-control" value="<?php echo $seminar["firstname"] ?>" id="firstname" name="firstname">
     </div>
     <div class="form-group">
         <label for="lastname">Last Name</label>
-        <input type="text" class="form-control" value="<?php echo $seminar['lastname'] ?>" id="lastname" name="lastname">
+        <input type="text" class="form-control" value="<?php echo $seminar["lastname"] ?>" id="lastname" name="lastname">
     </div>
     <div class="form-group">
         <label for="address">Address</label>
